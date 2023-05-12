@@ -5,7 +5,8 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   app.enableCors({
-    origin: ['https://js-api-gql.vercel.app', 'https://studio.apollographql.com', 'https://js-api-gql-production.up.railway.app']
+    origin: ['https://js-api-gql.vercel.app', 'https://studio.apollographql.com', 'https://js-api-gql-production.up.railway.app',
+      'https://js-api-gql-production.up.railway.app/graphql', '*']
   });
 
   await app.listen(process.env.PORT || 3000);
