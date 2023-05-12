@@ -3,6 +3,7 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { GraphQLModule } from '@nestjs/graphql';
+import { join } from 'path';
 import { FacilityModule } from '../infra/facility/facility.module';
 import { HorseModule } from '../infra/horse/horse.module';
 import { ImageModule } from '../infra/image/image.module';
@@ -17,9 +18,10 @@ import { SettingsModule } from '../infra/settings/settings.module';
     }),
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
-      autoSchemaFile: true,
+      autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
       sortSchema: true,
-      playground: true,
+      playground: false,
+      introspection: true,
       plugins: [ApolloServerPluginLandingPageProductionDefault()],
       formatError: (error) => {
         return {
