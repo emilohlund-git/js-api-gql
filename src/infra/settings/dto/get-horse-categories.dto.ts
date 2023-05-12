@@ -1,8 +1,8 @@
 import { Field, InputType, Int } from '@nestjs/graphql';
 import { Prisma } from '@prisma/client';
-import { HorseCategoryOrderByWithRelationInput } from 'src/@generated/horse-category/horse-category-order-by-with-relation.input';
-import { HorseCategoryWhereUniqueInput } from 'src/@generated/horse-category/horse-category-where-unique.input';
-import { HorseCategoryWhereInput } from 'src/@generated/horse-category/horse-category-where.input';
+import { HorseCategoryOrderByWithRelationInput } from '../../../@generated/horse-category/horse-category-order-by-with-relation.input';
+import { HorseCategoryWhereUniqueInput } from '../../../@generated/horse-category/horse-category-where-unique.input';
+import { HorseCategoryWhereInput } from '../../../@generated/horse-category/horse-category-where.input';
 
 @InputType()
 export class GetHorseCategoriesArgs {

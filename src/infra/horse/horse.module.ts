@@ -1,5 +1,5 @@
 import { Module } from "@nestjs/common";
-import { PrismaModule } from "src/app/prisma.module";
+import { PrismaModule } from "../../app/prisma.module";
 import { HorseController } from "./api/horse.controller";
 import { HorseRepository } from "./horse.repository";
 import { HorseService } from "./horse.service";

@@ -1,7 +1,7 @@
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { Prisma } from '@prisma/client';
-import { HorseColorCreateInput } from 'src/@generated/horse-color/horse-color-create.input';
-import { HorseColorWhereUniqueInput } from 'src/@generated/horse-color/horse-color-where-unique.input';
+import { HorseColorCreateInput } from '../../../@generated/horse-color/horse-color-create.input';
+import { HorseColorWhereUniqueInput } from '../../../@generated/horse-color/horse-color-where-unique.input';
 import { GetHorseColorsArgs } from '../dto/get-horse-colors.dto';
 import { HorseColor } from '../models/horse.color.model';
 import { SettingsService } from '../settings.service';

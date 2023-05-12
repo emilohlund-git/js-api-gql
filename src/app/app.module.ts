@@ -3,11 +3,11 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { GraphQLModule } from '@nestjs/graphql';
-import { FacilityModule } from 'src/infra/facility/facility.module';
-import { HorseModule } from 'src/infra/horse/horse.module';
-import { ImageModule } from 'src/infra/image/image.module';
-import { PartnerModule } from 'src/infra/partner/partner.module';
-import { SettingsModule } from 'src/infra/settings/settings.module';
+import { FacilityModule } from '../infra/facility/facility.module';
+import { HorseModule } from '../infra/horse/horse.module';
+import { ImageModule } from '../infra/image/image.module';
+import { PartnerModule } from '../infra/partner/partner.module';
+import { SettingsModule } from '../infra/settings/settings.module';
 
 @Module({
   imports: [

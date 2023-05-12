@@ -1,8 +1,8 @@
 import { Injectable } from "@nestjs/common";
 import { HorseCategory, HorseColor, HorseGender, Prisma } from "@prisma/client";
-import { HorseCategoryCreateInput } from "src/@generated/horse-category/horse-category-create.input";
-import { HorseColorCreateInput } from "src/@generated/horse-color/horse-color-create.input";
-import { HorseGenderCreateInput } from "src/@generated/horse-gender/horse-gender-create.input";
+import { HorseCategoryCreateInput } from "../../@generated/horse-category/horse-category-create.input";
+import { HorseColorCreateInput } from "../../@generated/horse-color/horse-color-create.input";
+import { HorseGenderCreateInput } from "../../@generated/horse-gender/horse-gender-create.input";
 import { GetHorseCategoriesArgs } from "./dto/get-horse-categories.dto";
 import { GetHorseColorsArgs } from "./dto/get-horse-colors.dto";
 import { GetHorseGendersArgs } from "./dto/get-horse-genders.dto";

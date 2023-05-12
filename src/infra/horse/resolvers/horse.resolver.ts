@@ -1,8 +1,8 @@
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { Prisma } from '@prisma/client';
-import { HorseCreateInput } from 'src/@generated/horse/horse-create.input';
-import { HorseUpdateInput } from 'src/@generated/horse/horse-update.input';
-import { HorseWhereUniqueInput } from 'src/@generated/horse/horse-where-unique.input';
+import { HorseCreateInput } from '../../../@generated/horse/horse-create.input';
+import { HorseUpdateInput } from '../../../@generated/horse/horse-update.input';
+import { HorseWhereUniqueInput } from '../../../@generated/horse/horse-where-unique.input';
 import { GetHorseArgs } from '../dto/get-horse.dto';
 import { HorseService } from '../horse.service';
 import { Horse } from '../models/horse.model';

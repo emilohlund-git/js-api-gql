@@ -1,8 +1,8 @@
 import { Args, Int, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { randomUUID } from 'crypto';
-import { ImageCreateInput } from 'src/@generated/image/image-create.input';
-import { ImageUpdateInput } from 'src/@generated/image/image-update.input';
-import { ImageWhereUniqueInput } from 'src/@generated/image/image-where-unique.input';
+import { ImageCreateInput } from '../../../@generated/image/image-create.input';
+import { ImageUpdateInput } from '../../../@generated/image/image-update.input';
+import { ImageWhereUniqueInput } from '../../../@generated/image/image-where-unique.input';
 import { GetImagesArgs } from '../dto/get-image.dto';
 import { ImageService } from '../image.service';
 import { Image } from '../models/image.model';

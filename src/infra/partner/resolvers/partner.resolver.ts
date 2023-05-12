@@ -1,8 +1,8 @@
 import { Args, Int, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { randomUUID } from 'crypto';
-import { PartnerCreateInput } from 'src/@generated/partner/partner-create.input';
-import { PartnerUpdateInput } from 'src/@generated/partner/partner-update.input';
-import { PartnerWhereUniqueInput } from 'src/@generated/partner/partner-where-unique.input';
+import { PartnerCreateInput } from '../../../@generated/partner/partner-create.input';
+import { PartnerUpdateInput } from '../../../@generated/partner/partner-update.input';
+import { PartnerWhereUniqueInput } from '../../../@generated/partner/partner-where-unique.input';
 import { GetPartnersArgs } from '../dto/get-partner.dto';
 import { Partner } from '../models/partner.model';
 import { PartnerService } from '../partner.service';

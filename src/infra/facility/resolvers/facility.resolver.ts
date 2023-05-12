@@ -1,9 +1,9 @@
 import { Args, Int, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { Facility as PrismaFacility } from '@prisma/client';
 import { randomUUID } from 'crypto';
-import { FacilityCreateInput } from 'src/@generated/facility/facility-create.input';
-import { FacilityUpdateInput } from 'src/@generated/facility/facility-update.input';
-import { FacilityWhereUniqueInput } from 'src/@generated/facility/facility-where-unique.input';
+import { FacilityCreateInput } from '../../../@generated/facility/facility-create.input';
+import { FacilityUpdateInput } from '../../../@generated/facility/facility-update.input';
+import { FacilityWhereUniqueInput } from '../../../@generated/facility/facility-where-unique.input';
 import { GetFacilityArgs } from '../dto/get-facility.dto';
 import { FacilityService } from '../facility.service';
 import { Facility } from '../models/facility.model';

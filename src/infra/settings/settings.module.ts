@@ -1,5 +1,5 @@
 import { Module } from "@nestjs/common";
-import { PrismaModule } from "src/app/prisma.module";
+import { PrismaModule } from "../../app/prisma.module";
 import { HorseCategoryResolver } from "../settings/resolvers/horse-category.resolve";
 import { HorseColorResolver } from "./resolvers/horse-color.resolver";
 import { HorseGenderResolver } from "./resolvers/horse-gender.resolver";

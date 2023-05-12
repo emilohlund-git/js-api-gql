@@ -1,8 +1,8 @@
 import { Field, InputType, Int } from '@nestjs/graphql';
 import { Prisma } from '@prisma/client';
-import { ImageOrderByWithRelationInput } from 'src/@generated/image/image-order-by-with-relation.input';
-import { ImageWhereUniqueInput } from 'src/@generated/image/image-where-unique.input';
-import { ImageWhereInput } from 'src/@generated/image/image-where.input';
+import { ImageOrderByWithRelationInput } from '../../../@generated/image/image-order-by-with-relation.input';
+import { ImageWhereUniqueInput } from '../../../@generated/image/image-where-unique.input';
+import { ImageWhereInput } from '../../../@generated/image/image-where.input';
 
 @InputType()
 export class GetImagesArgs {

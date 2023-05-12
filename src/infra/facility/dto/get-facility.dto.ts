@@ -1,8 +1,8 @@
 import { Field, InputType, Int } from '@nestjs/graphql';
 import { Prisma } from '@prisma/client';
-import { FacilityOrderByWithRelationInput } from 'src/@generated/facility/facility-order-by-with-relation.input';
-import { FacilityWhereUniqueInput } from 'src/@generated/facility/facility-where-unique.input';
-import { FacilityWhereInput } from 'src/@generated/facility/facility-where.input';
+import { FacilityOrderByWithRelationInput } from '../../../@generated/facility/facility-order-by-with-relation.input';
+import { FacilityWhereUniqueInput } from '../../../@generated/facility/facility-where-unique.input';
+import { FacilityWhereInput } from '../../../@generated/facility/facility-where.input';
 
 @InputType()
 export class GetFacilityArgs {

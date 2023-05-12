@@ -1,8 +1,8 @@
 import { Field, InputType, Int } from '@nestjs/graphql';
 import { Prisma } from '@prisma/client';
-import { PartnerOrderByWithRelationInput } from 'src/@generated/partner/partner-order-by-with-relation.input';
-import { PartnerWhereUniqueInput } from 'src/@generated/partner/partner-where-unique.input';
-import { PartnerWhereInput } from 'src/@generated/partner/partner-where.input';
+import { PartnerOrderByWithRelationInput } from '../../../@generated/partner/partner-order-by-with-relation.input';
+import { PartnerWhereUniqueInput } from '../../../@generated/partner/partner-where-unique.input';
+import { PartnerWhereInput } from '../../../@generated/partner/partner-where.input';
 
 @InputType()
 export class GetPartnersArgs {

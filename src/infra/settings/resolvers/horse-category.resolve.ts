@@ -1,7 +1,7 @@
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { Prisma } from '@prisma/client';
-import { HorseCategoryCreateInput } from 'src/@generated/horse-category/horse-category-create.input';
-import { HorseCategoryWhereUniqueInput } from 'src/@generated/horse-category/horse-category-where-unique.input';
+import { HorseCategoryCreateInput } from '../../../@generated/horse-category/horse-category-create.input';
+import { HorseCategoryWhereUniqueInput } from '../../../@generated/horse-category/horse-category-where-unique.input';
 import { GetHorseCategoriesArgs } from '../dto/get-horse-categories.dto';
 import { HorseCategory } from '../models/horse.category.model';
 import { SettingsService } from '../settings.service';

@@ -1,5 +1,5 @@
 import { Module } from "@nestjs/common";
-import { PrismaModule } from "src/app/prisma.module";
+import { PrismaModule } from "../../app/prisma.module";
 import { ImageRepository } from "./image.repository";
 import { ImageService } from "./image.service";
 import { ImageResolver } from "./resolvers/image.resolver";
