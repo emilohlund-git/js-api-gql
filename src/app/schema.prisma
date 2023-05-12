@@ -1,0 +1,99 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+generator client {
+  provider = "prisma-client-js"
+}
+
+generator nestgraphql {
+  provider = "node node_modules/prisma-nestjs-graphql"
+  output   = "../../src/@generated"
+}
+
+model Image {
+  url        String
+  id         String    @id @default(uuid())
+  horse      Horse?    @relation(fields: [horseId], references: [id])
+  horseId    String?
+  profile    Boolean   @default(false)
+  facility   Facility? @relation(fields: [facilityId], references: [id])
+  facilityId String?
+  partner    Partner[]
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+}
+
+model HorseColor {
+  id        String   @id @default(uuid())
+  color     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model HorseGender {
+  id        String   @id @default(uuid())
+  gender    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model HorseCategory {
+  id        String   @id @default(uuid())
+  category  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model User {
+  id        String   @id @default(uuid())
+  name      String
+  email     String
+  password  String
+  role      Role
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Horse {
+  id        String   @id @default(uuid())
+  name      String
+  nickname  String
+  category  String
+  images    Image[]
+  owner     String
+  after     String
+  birthyear String
+  gender    String
+  color     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Facility {
+  id          String   @id @default(uuid())
+  name        String
+  description String
+  images      Image[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Partner {
+  id          String   @id @default(uuid())
+  name        String
+  website     String
+  description String
+  image       Image    @relation(fields: [imageId], references: [id])
+  imageId     String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+enum Role {
+  Admin
+  User
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
