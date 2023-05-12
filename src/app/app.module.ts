@@ -18,6 +18,7 @@ import { SettingsModule } from '../infra/settings/settings.module';
       driver: ApolloDriver,
       autoSchemaFile: true,
       sortSchema: true,
+      playground: true,
       formatError: (error) => {
         return {
           message: error.message.split("\n")[error.message.split("\n").length - 1]
