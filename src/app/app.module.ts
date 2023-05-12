@@ -1,4 +1,4 @@
-import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin/landingPage/default';
+import { ApolloServerPluginLandingPageProductionDefault } from '@apollo/server/plugin/landingPage/default';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
@@ -19,7 +19,7 @@ import { SettingsModule } from '../infra/settings/settings.module';
       driver: ApolloDriver,
       playground: false,
       autoSchemaFile: true,
-      plugins: [ApolloServerPluginLandingPageLocalDefault()],
+      plugins: [ApolloServerPluginLandingPageProductionDefault()],
       formatError: (error) => {
         return {
           message: error.message.split("\n")[error.message.split("\n").length - 1]
