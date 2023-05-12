@@ -8,6 +8,6 @@ async function bootstrap() {
     origin: ['https://js-api-gql.vercel.app', 'https://studio.apollographql.com', 'https://js-api-gql-production.up.railway.app']
   });
 
-  await app.listen(3000);
+  await app.listen(process.env.PORT || 3000);
 }
 bootstrap();
