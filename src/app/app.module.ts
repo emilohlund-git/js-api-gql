@@ -1,5 +1,5 @@
 import { ApolloServerPluginLandingPageProductionDefault } from '@apollo/server/plugin/landingPage/default';
-import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
+import { ApolloDriverConfig } from '@nestjs/apollo';
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { GraphQLModule } from '@nestjs/graphql';
@@ -16,7 +16,7 @@ import { SettingsModule } from '../infra/settings/settings.module';
       isGlobal: true
     }),
     GraphQLModule.forRoot<ApolloDriverConfig>({
-      driver: ApolloDriver,
+      introspection: true,
       playground: false,
       autoSchemaFile: true,
       plugins: [ApolloServerPluginLandingPageProductionDefault()],
