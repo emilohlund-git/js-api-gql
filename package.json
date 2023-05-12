@@ -20,7 +20,7 @@
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "migrate": "npx prisma migrate dev",
     "pre-deploy": "prisma generate && prisma migrate deploy",
-    "vercel-build": "nest build"
+    "vercel-build": "prisma generate && nest build"
   },
   "dependencies": {
     "@apollo/server": "^4.7.1",
