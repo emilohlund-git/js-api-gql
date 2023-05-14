@@ -6,7 +6,7 @@ async function bootstrap() {
 
   app.enableCors({
     origin: ['https://js-api-gql.vercel.app', 'https://studio.apollographql.com', 'https://js-api-gql-production.up.railway.app',
-      'https://js-api-gql-production.up.railway.app/graphql', '*', 'http://localhost:3001']
+      'https://js-api-gql-production.up.railway.app/graphql', 'http://localhost:3001', 'https://jsapi-admin.vercel.app']
   });
 
   await app.listen(process.env.PORT || 3000);
