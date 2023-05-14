@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post } from "@nestjs/common";
+import { Body, Controller, Get, Param, Post } from "@nestjs/common";
 import { Horse, Prisma } from "@prisma/client";
 import { HorseService } from "../horse.service";
 
@@ -12,13 +12,34 @@ export class HorseController {
   }
 
   @Get()
-  async get(@Body() params: {
-    skip?: number;
-    take?: number;
-    cursor?: Prisma.HorseWhereUniqueInput;
-    where?: Prisma.HorseWhereInput;
-    orderBy?: Prisma.HorseOrderByWithRelationInput;
-  }): Promise<Horse[]> {
-    return this.horseService.get(params);
+  async get(): Promise<Horse[]> {
+    return this.horseService.get({});
+  }
+
+  @Get(':id')
+  async getById(@Param('id') id: string): Promise<Horse> {
+    const response = await this.horseService.get({
+      where: {
+        id: {
+          equals: id
+        }
+      }
+    });
+
+    return response[0];
+  }
+
+  @Get('/category/:category')
+  async getByCategory(@Param('category') category: string): Promise<Horse[]> {
+    console.log(category);
+    const response = await this.horseService.get({
+      where: {
+        category: {
+          equals: category
+        }
+      }
+    });
+
+    return response;
   }
 }
