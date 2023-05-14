@@ -17,6 +17,27 @@
                 "PUT",
                 "DELETE"
             ]
+        },
+        {
+            "src": "/graphql",
+            "dest": "/graphql",
+            "methods": [
+                "POST"
+            ]
         }
-    ]
+    ],
+    "files": [
+        "**/*",
+        "!vercel-build.sh"
+    ],
+    "functions": {
+        "graphql": {
+            "runtime": "vercel-node@16.x",
+            "memory": 512,
+            "maxDuration": 10,
+            "includeFiles": [
+                "graphql.schema.json"
+            ]
+        }
+    }
 }
