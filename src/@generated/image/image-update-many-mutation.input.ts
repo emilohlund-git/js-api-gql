@@ -13,6 +13,9 @@ export class ImageUpdateManyMutationInput {
     @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
     id?: StringFieldUpdateOperationsInput;
 
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    fileId?: StringFieldUpdateOperationsInput;
+
     @Field(() => BoolFieldUpdateOperationsInput, {nullable:true})
     profile?: BoolFieldUpdateOperationsInput;
 

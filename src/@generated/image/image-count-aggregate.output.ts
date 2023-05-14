@@ -12,6 +12,9 @@ export class ImageCountAggregate {
     id!: number;
 
     @Field(() => Int, {nullable:false})
+    fileId!: number;
+
+    @Field(() => Int, {nullable:false})
     horseId!: number;
 
     @Field(() => Int, {nullable:false})

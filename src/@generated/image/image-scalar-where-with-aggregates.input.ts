@@ -23,6 +23,9 @@ export class ImageScalarWhereWithAggregatesInput {
     @Field(() => StringWithAggregatesFilter, {nullable:true})
     id?: StringWithAggregatesFilter;
 
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
+    fileId?: StringWithAggregatesFilter;
+
     @Field(() => StringNullableWithAggregatesFilter, {nullable:true})
     horseId?: StringNullableWithAggregatesFilter;
 

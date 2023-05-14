@@ -6,4 +6,7 @@ export class PartnerWhereUniqueInput {
 
     @Field(() => String, {nullable:true})
     id?: string;
+
+    @Field(() => String, {nullable:true})
+    imageId?: string;
 }

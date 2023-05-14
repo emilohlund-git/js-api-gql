@@ -312,8 +312,8 @@ input HorseCreateWithoutImagesInput {
 }
 
 type HorseGender {
-  color: String!
   createdAt: DateTime!
+  gender: String!
   id: String!
   updatedAt: DateTime!
 }
@@ -435,6 +435,7 @@ input HorseWhereUniqueInput {
 type Image {
   createdAt: DateTime!
   facility: Facility
+  fileId: String!
   horse: Horse
   id: String!
   partner: Partner
@@ -446,9 +447,10 @@ type Image {
 input ImageCreateInput {
   createdAt: DateTime
   facility: FacilityCreateNestedOneWithoutImagesInput
+  fileId: String!
   horse: HorseCreateNestedOneWithoutImagesInput
   id: String
-  partner: PartnerCreateNestedManyWithoutImageInput
+  partner: PartnerCreateNestedOneWithoutImageInput
   profile: Boolean
   updatedAt: DateTime
   url: String!
@@ -456,6 +458,7 @@ input ImageCreateInput {
 
 input ImageCreateManyFacilityInput {
   createdAt: DateTime
+  fileId: String!
   horseId: String
   id: String
   profile: Boolean
@@ -471,6 +474,7 @@ input ImageCreateManyFacilityInputEnvelope {
 input ImageCreateManyHorseInput {
   createdAt: DateTime
   facilityId: String
+  fileId: String!
   id: String
   profile: Boolean
   updatedAt: DateTime
@@ -519,9 +523,10 @@ input ImageCreateOrConnectWithoutPartnerInput {
 
 input ImageCreateWithoutFacilityInput {
   createdAt: DateTime
+  fileId: String!
   horse: HorseCreateNestedOneWithoutImagesInput
   id: String
-  partner: PartnerCreateNestedManyWithoutImageInput
+  partner: PartnerCreateNestedOneWithoutImageInput
   profile: Boolean
   updatedAt: DateTime
   url: String!
@@ -530,8 +535,9 @@ input ImageCreateWithoutFacilityInput {
 input ImageCreateWithoutHorseInput {
   createdAt: DateTime
   facility: FacilityCreateNestedOneWithoutImagesInput
+  fileId: String!
   id: String
-  partner: PartnerCreateNestedManyWithoutImageInput
+  partner: PartnerCreateNestedOneWithoutImageInput
   profile: Boolean
   updatedAt: DateTime
   url: String!
@@ -540,6 +546,7 @@ input ImageCreateWithoutHorseInput {
 input ImageCreateWithoutPartnerInput {
   createdAt: DateTime
   facility: FacilityCreateNestedOneWithoutImagesInput
+  fileId: String!
   horse: HorseCreateNestedOneWithoutImagesInput
   id: String
   profile: Boolean
@@ -561,10 +568,11 @@ input ImageOrderByWithRelationInput {
   createdAt: SortOrder
   facility: FacilityOrderByWithRelationInput
   facilityId: SortOrder
+  fileId: SortOrder
   horse: HorseOrderByWithRelationInput
   horseId: SortOrder
   id: SortOrder
-  partner: PartnerOrderByRelationAggregateInput
+  partner: PartnerOrderByWithRelationInput
   profile: SortOrder
   updatedAt: SortOrder
   url: SortOrder
@@ -581,6 +589,7 @@ input ImageScalarWhereInput {
   OR: [ImageScalarWhereInput!]
   createdAt: DateTimeFilter
   facilityId: StringNullableFilter
+  fileId: StringFilter
   horseId: StringNullableFilter
   id: StringFilter
   profile: BoolFilter
@@ -591,9 +600,10 @@ input ImageScalarWhereInput {
 input ImageUpdateInput {
   createdAt: DateTimeFieldUpdateOperationsInput
   facility: FacilityUpdateOneWithoutImagesNestedInput
+  fileId: StringFieldUpdateOperationsInput
   horse: HorseUpdateOneWithoutImagesNestedInput
   id: StringFieldUpdateOperationsInput
-  partner: PartnerUpdateManyWithoutImageNestedInput
+  partner: PartnerUpdateOneWithoutImageNestedInput
   profile: BoolFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: StringFieldUpdateOperationsInput
@@ -601,6 +611,7 @@ input ImageUpdateInput {
 
 input ImageUpdateManyMutationInput {
   createdAt: DateTimeFieldUpdateOperationsInput
+  fileId: StringFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
   profile: BoolFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
@@ -645,10 +656,12 @@ input ImageUpdateManyWithoutHorseNestedInput {
   upsert: [ImageUpsertWithWhereUniqueWithoutHorseInput!]
 }
 
-input ImageUpdateOneRequiredWithoutPartnerNestedInput {
+input ImageUpdateOneWithoutPartnerNestedInput {
   connect: ImageWhereUniqueInput
   connectOrCreate: ImageCreateOrConnectWithoutPartnerInput
   create: ImageCreateWithoutPartnerInput
+  delete: Boolean
+  disconnect: Boolean
   update: ImageUpdateWithoutPartnerInput
   upsert: ImageUpsertWithoutPartnerInput
 }
@@ -665,9 +678,10 @@ input ImageUpdateWithWhereUniqueWithoutHorseInput {
 
 input ImageUpdateWithoutFacilityInput {
   createdAt: DateTimeFieldUpdateOperationsInput
+  fileId: StringFieldUpdateOperationsInput
   horse: HorseUpdateOneWithoutImagesNestedInput
   id: StringFieldUpdateOperationsInput
-  partner: PartnerUpdateManyWithoutImageNestedInput
+  partner: PartnerUpdateOneWithoutImageNestedInput
   profile: BoolFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: StringFieldUpdateOperationsInput
@@ -676,8 +690,9 @@ input ImageUpdateWithoutFacilityInput {
 input ImageUpdateWithoutHorseInput {
   createdAt: DateTimeFieldUpdateOperationsInput
   facility: FacilityUpdateOneWithoutImagesNestedInput
+  fileId: StringFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
-  partner: PartnerUpdateManyWithoutImageNestedInput
+  partner: PartnerUpdateOneWithoutImageNestedInput
   profile: BoolFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   url: StringFieldUpdateOperationsInput
@@ -686,6 +701,7 @@ input ImageUpdateWithoutHorseInput {
 input ImageUpdateWithoutPartnerInput {
   createdAt: DateTimeFieldUpdateOperationsInput
   facility: FacilityUpdateOneWithoutImagesNestedInput
+  fileId: StringFieldUpdateOperationsInput
   horse: HorseUpdateOneWithoutImagesNestedInput
   id: StringFieldUpdateOperationsInput
   profile: BoolFieldUpdateOperationsInput
@@ -717,10 +733,11 @@ input ImageWhereInput {
   createdAt: DateTimeFilter
   facility: FacilityRelationFilter
   facilityId: StringNullableFilter
+  fileId: StringFilter
   horse: HorseRelationFilter
   horseId: StringNullableFilter
   id: StringFilter
-  partner: PartnerListRelationFilter
+  partner: PartnerRelationFilter
   profile: BoolFilter
   updatedAt: DateTimeFilter
   url: StringFilter
@@ -748,6 +765,7 @@ type Mutation {
   deleteHorse(HorseWhereUniqueInput: HorseWhereUniqueInput!): Horse!
   deleteImage(ImageWhereUniqueInput: ImageWhereUniqueInput!): Image
   deletePartner(PartnerWhereUniqueInput: PartnerWhereUniqueInput!): Partner
+  setProfile(FacilityWhereUniqueInput: FacilityWhereUniqueInput, HorseWhereUniqueInput: HorseWhereUniqueInput, ImageWhereUniqueInput: ImageWhereUniqueInput!, PartnerWhereUniqueInput: PartnerWhereUniqueInput): Image!
   updateFacility(FacilityUpdateInput: FacilityUpdateInput!, FacilityWhereUnique: FacilityWhereUniqueInput!): Facility!
   updateHorse(HorseUpdateInput: HorseUpdateInput!, HorseWhereUnique: HorseWhereUniqueInput!): Horse!
   updateImage(ImageUpdateInput: ImageUpdateInput!, ImageWhereUnique: ImageWhereUniqueInput!): Image!
@@ -812,31 +830,16 @@ input PartnerCreateInput {
   createdAt: DateTime
   description: String!
   id: String
-  image: ImageCreateNestedOneWithoutPartnerInput!
+  image: ImageCreateNestedOneWithoutPartnerInput
   name: String!
   updatedAt: DateTime
   website: String!
 }
 
-input PartnerCreateManyImageInput {
-  createdAt: DateTime
-  description: String!
-  id: String
-  name: String!
-  updatedAt: DateTime
-  website: String!
-}
-
-input PartnerCreateManyImageInputEnvelope {
-  data: [PartnerCreateManyImageInput!]!
-  skipDuplicates: Boolean
-}
-
-input PartnerCreateNestedManyWithoutImageInput {
-  connect: [PartnerWhereUniqueInput!]
-  connectOrCreate: [PartnerCreateOrConnectWithoutImageInput!]
-  create: [PartnerCreateWithoutImageInput!]
-  createMany: PartnerCreateManyImageInputEnvelope
+input PartnerCreateNestedOneWithoutImageInput {
+  connect: PartnerWhereUniqueInput
+  connectOrCreate: PartnerCreateOrConnectWithoutImageInput
+  create: PartnerCreateWithoutImageInput
 }
 
 input PartnerCreateOrConnectWithoutImageInput {
@@ -853,16 +856,6 @@ input PartnerCreateWithoutImageInput {
   website: String!
 }
 
-input PartnerListRelationFilter {
-  every: PartnerWhereInput
-  none: PartnerWhereInput
-  some: PartnerWhereInput
-}
-
-input PartnerOrderByRelationAggregateInput {
-  _count: SortOrder
-}
-
 input PartnerOrderByWithRelationInput {
   createdAt: SortOrder
   description: SortOrder
@@ -874,60 +867,29 @@ input PartnerOrderByWithRelationInput {
   website: SortOrder
 }
 
-input PartnerScalarWhereInput {
-  AND: [PartnerScalarWhereInput!]
-  NOT: [PartnerScalarWhereInput!]
-  OR: [PartnerScalarWhereInput!]
-  createdAt: DateTimeFilter
-  description: StringFilter
-  id: StringFilter
-  imageId: StringFilter
-  name: StringFilter
-  updatedAt: DateTimeFilter
-  website: StringFilter
+input PartnerRelationFilter {
+  is: PartnerWhereInput
+  isNot: PartnerWhereInput
 }
 
 input PartnerUpdateInput {
   createdAt: DateTimeFieldUpdateOperationsInput
   description: StringFieldUpdateOperationsInput
   id: StringFieldUpdateOperationsInput
-  image: ImageUpdateOneRequiredWithoutPartnerNestedInput
+  image: ImageUpdateOneWithoutPartnerNestedInput
   name: StringFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
   website: StringFieldUpdateOperationsInput
 }
 
-input PartnerUpdateManyMutationInput {
-  createdAt: DateTimeFieldUpdateOperationsInput
-  description: StringFieldUpdateOperationsInput
-  id: StringFieldUpdateOperationsInput
-  name: StringFieldUpdateOperationsInput
-  updatedAt: DateTimeFieldUpdateOperationsInput
-  website: StringFieldUpdateOperationsInput
-}
-
-input PartnerUpdateManyWithWhereWithoutImageInput {
-  data: PartnerUpdateManyMutationInput!
-  where: PartnerScalarWhereInput!
-}
-
-input PartnerUpdateManyWithoutImageNestedInput {
-  connect: [PartnerWhereUniqueInput!]
-  connectOrCreate: [PartnerCreateOrConnectWithoutImageInput!]
-  create: [PartnerCreateWithoutImageInput!]
-  createMany: PartnerCreateManyImageInputEnvelope
-  delete: [PartnerWhereUniqueInput!]
-  deleteMany: [PartnerScalarWhereInput!]
-  disconnect: [PartnerWhereUniqueInput!]
-  set: [PartnerWhereUniqueInput!]
-  update: [PartnerUpdateWithWhereUniqueWithoutImageInput!]
-  updateMany: [PartnerUpdateManyWithWhereWithoutImageInput!]
-  upsert: [PartnerUpsertWithWhereUniqueWithoutImageInput!]
-}
-
-input PartnerUpdateWithWhereUniqueWithoutImageInput {
-  data: PartnerUpdateWithoutImageInput!
-  where: PartnerWhereUniqueInput!
+input PartnerUpdateOneWithoutImageNestedInput {
+  connect: PartnerWhereUniqueInput
+  connectOrCreate: PartnerCreateOrConnectWithoutImageInput
+  create: PartnerCreateWithoutImageInput
+  delete: Boolean
+  disconnect: Boolean
+  update: PartnerUpdateWithoutImageInput
+  upsert: PartnerUpsertWithoutImageInput
 }
 
 input PartnerUpdateWithoutImageInput {
@@ -939,10 +901,9 @@ input PartnerUpdateWithoutImageInput {
   website: StringFieldUpdateOperationsInput
 }
 
-input PartnerUpsertWithWhereUniqueWithoutImageInput {
+input PartnerUpsertWithoutImageInput {
   create: PartnerCreateWithoutImageInput!
   update: PartnerUpdateWithoutImageInput!
-  where: PartnerWhereUniqueInput!
 }
 
 input PartnerWhereInput {
@@ -953,7 +914,7 @@ input PartnerWhereInput {
   description: StringFilter
   id: StringFilter
   image: ImageRelationFilter
-  imageId: StringFilter
+  imageId: StringNullableFilter
   name: StringFilter
   updatedAt: DateTimeFilter
   website: StringFilter
@@ -961,6 +922,7 @@ input PartnerWhereInput {
 
 input PartnerWhereUniqueInput {
   id: String
+  imageId: String
 }
 
 type Query {

@@ -7,7 +7,7 @@ export class HorseGender {
   id: HorseDB['id'];
 
   @Field()
-  color: string;
+  gender: string;
 
   @Field(() => GraphQLISODateTime)
   createdAt: HorseDB['createdAt'];

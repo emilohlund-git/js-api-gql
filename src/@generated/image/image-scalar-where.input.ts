@@ -23,6 +23,9 @@ export class ImageScalarWhereInput {
     @Field(() => StringFilter, {nullable:true})
     id?: StringFilter;
 
+    @Field(() => StringFilter, {nullable:true})
+    fileId?: StringFilter;
+
     @Field(() => StringNullableFilter, {nullable:true})
     horseId?: StringNullableFilter;
 

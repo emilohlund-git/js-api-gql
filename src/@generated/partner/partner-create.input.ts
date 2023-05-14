@@ -23,6 +23,6 @@ export class PartnerCreateInput {
     @Field(() => Date, {nullable:true})
     updatedAt?: Date | string;
 
-    @Field(() => ImageCreateNestedOneWithoutPartnerInput, {nullable:false})
-    image!: ImageCreateNestedOneWithoutPartnerInput;
+    @Field(() => ImageCreateNestedOneWithoutPartnerInput, {nullable:true})
+    image?: ImageCreateNestedOneWithoutPartnerInput;
 }

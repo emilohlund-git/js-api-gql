@@ -1,7 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { FacilityCreateNestedOneWithoutImagesInput } from '../facility/facility-create-nested-one-without-images.input';
-import { PartnerCreateNestedManyWithoutImageInput } from '../partner/partner-create-nested-many-without-image.input';
+import { PartnerCreateNestedOneWithoutImageInput } from '../partner/partner-create-nested-one-without-image.input';
 
 @InputType()
 export class ImageCreateWithoutHorseInput {
@@ -11,6 +11,9 @@ export class ImageCreateWithoutHorseInput {
 
     @Field(() => String, {nullable:true})
     id?: string;
+
+    @Field(() => String, {nullable:false})
+    fileId!: string;
 
     @Field(() => Boolean, {nullable:true})
     profile?: boolean;
@@ -24,6 +27,6 @@ export class ImageCreateWithoutHorseInput {
     @Field(() => FacilityCreateNestedOneWithoutImagesInput, {nullable:true})
     facility?: FacilityCreateNestedOneWithoutImagesInput;
 
-    @Field(() => PartnerCreateNestedManyWithoutImageInput, {nullable:true})
-    partner?: PartnerCreateNestedManyWithoutImageInput;
+    @Field(() => PartnerCreateNestedOneWithoutImageInput, {nullable:true})
+    partner?: PartnerCreateNestedOneWithoutImageInput;
 }

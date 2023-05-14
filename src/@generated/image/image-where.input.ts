@@ -6,7 +6,7 @@ import { BoolFilter } from '../prisma/bool-filter.input';
 import { DateTimeFilter } from '../prisma/date-time-filter.input';
 import { HorseRelationFilter } from '../horse/horse-relation-filter.input';
 import { FacilityRelationFilter } from '../facility/facility-relation-filter.input';
-import { PartnerListRelationFilter } from '../partner/partner-list-relation-filter.input';
+import { PartnerRelationFilter } from '../partner/partner-relation-filter.input';
 
 @InputType()
 export class ImageWhereInput {
@@ -25,6 +25,9 @@ export class ImageWhereInput {
 
     @Field(() => StringFilter, {nullable:true})
     id?: StringFilter;
+
+    @Field(() => StringFilter, {nullable:true})
+    fileId?: StringFilter;
 
     @Field(() => StringNullableFilter, {nullable:true})
     horseId?: StringNullableFilter;
@@ -47,6 +50,6 @@ export class ImageWhereInput {
     @Field(() => FacilityRelationFilter, {nullable:true})
     facility?: FacilityRelationFilter;
 
-    @Field(() => PartnerListRelationFilter, {nullable:true})
-    partner?: PartnerListRelationFilter;
+    @Field(() => PartnerRelationFilter, {nullable:true})
+    partner?: PartnerRelationFilter;
 }

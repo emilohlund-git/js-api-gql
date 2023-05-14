@@ -14,6 +14,9 @@ export class ImageUncheckedUpdateWithoutPartnerInput {
     @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
     id?: StringFieldUpdateOperationsInput;
 
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    fileId?: StringFieldUpdateOperationsInput;
+
     @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
     horseId?: NullableStringFieldUpdateOperationsInput;
 

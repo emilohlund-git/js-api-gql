@@ -1,6 +1,6 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
-import { PartnerUncheckedCreateNestedManyWithoutImageInput } from '../partner/partner-unchecked-create-nested-many-without-image.input';
+import { PartnerUncheckedCreateNestedOneWithoutImageInput } from '../partner/partner-unchecked-create-nested-one-without-image.input';
 
 @InputType()
 export class ImageUncheckedCreateInput {
@@ -10,6 +10,9 @@ export class ImageUncheckedCreateInput {
 
     @Field(() => String, {nullable:true})
     id?: string;
+
+    @Field(() => String, {nullable:false})
+    fileId!: string;
 
     @Field(() => String, {nullable:true})
     horseId?: string;
@@ -26,6 +29,6 @@ export class ImageUncheckedCreateInput {
     @Field(() => Date, {nullable:true})
     updatedAt?: Date | string;
 
-    @Field(() => PartnerUncheckedCreateNestedManyWithoutImageInput, {nullable:true})
-    partner?: PartnerUncheckedCreateNestedManyWithoutImageInput;
+    @Field(() => PartnerUncheckedCreateNestedOneWithoutImageInput, {nullable:true})
+    partner?: PartnerUncheckedCreateNestedOneWithoutImageInput;
 }

@@ -2,7 +2,7 @@ import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { StringFieldUpdateOperationsInput } from '../prisma/string-field-update-operations.input';
 import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-update-operations.input';
-import { ImageUpdateOneRequiredWithoutPartnerNestedInput } from '../image/image-update-one-required-without-partner-nested.input';
+import { ImageUpdateOneWithoutPartnerNestedInput } from '../image/image-update-one-without-partner-nested.input';
 
 @InputType()
 export class PartnerUpdateInput {
@@ -25,6 +25,6 @@ export class PartnerUpdateInput {
     @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
     updatedAt?: DateTimeFieldUpdateOperationsInput;
 
-    @Field(() => ImageUpdateOneRequiredWithoutPartnerNestedInput, {nullable:true})
-    image?: ImageUpdateOneRequiredWithoutPartnerNestedInput;
+    @Field(() => ImageUpdateOneWithoutPartnerNestedInput, {nullable:true})
+    image?: ImageUpdateOneWithoutPartnerNestedInput;
 }

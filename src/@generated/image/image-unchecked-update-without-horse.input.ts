@@ -4,7 +4,7 @@ import { StringFieldUpdateOperationsInput } from '../prisma/string-field-update-
 import { BoolFieldUpdateOperationsInput } from '../prisma/bool-field-update-operations.input';
 import { NullableStringFieldUpdateOperationsInput } from '../prisma/nullable-string-field-update-operations.input';
 import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-update-operations.input';
-import { PartnerUncheckedUpdateManyWithoutImageNestedInput } from '../partner/partner-unchecked-update-many-without-image-nested.input';
+import { PartnerUncheckedUpdateOneWithoutImageNestedInput } from '../partner/partner-unchecked-update-one-without-image-nested.input';
 
 @InputType()
 export class ImageUncheckedUpdateWithoutHorseInput {
@@ -14,6 +14,9 @@ export class ImageUncheckedUpdateWithoutHorseInput {
 
     @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
     id?: StringFieldUpdateOperationsInput;
+
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    fileId?: StringFieldUpdateOperationsInput;
 
     @Field(() => BoolFieldUpdateOperationsInput, {nullable:true})
     profile?: BoolFieldUpdateOperationsInput;
@@ -27,6 +30,6 @@ export class ImageUncheckedUpdateWithoutHorseInput {
     @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
     updatedAt?: DateTimeFieldUpdateOperationsInput;
 
-    @Field(() => PartnerUncheckedUpdateManyWithoutImageNestedInput, {nullable:true})
-    partner?: PartnerUncheckedUpdateManyWithoutImageNestedInput;
+    @Field(() => PartnerUncheckedUpdateOneWithoutImageNestedInput, {nullable:true})
+    partner?: PartnerUncheckedUpdateOneWithoutImageNestedInput;
 }

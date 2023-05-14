@@ -10,6 +10,9 @@ export class ImageCreateManyHorseInput {
     @Field(() => String, {nullable:true})
     id?: string;
 
+    @Field(() => String, {nullable:false})
+    fileId!: string;
+
     @Field(() => Boolean, {nullable:true})
     profile?: boolean;
 

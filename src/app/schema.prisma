@@ -12,12 +12,13 @@ generator nestgraphql {
 model Image {
   url        String
   id         String    @id @default(uuid())
-  horse      Horse?    @relation(fields: [horseId], references: [id])
+  fileId     String
+  horse      Horse?    @relation(fields: [horseId], references: [id], onDelete: Cascade)
   horseId    String?
   profile    Boolean   @default(false)
-  facility   Facility? @relation(fields: [facilityId], references: [id])
+  facility   Facility? @relation(fields: [facilityId], references: [id], onDelete: Cascade)
   facilityId String?
-  partner    Partner[]
+  partner    Partner?
   createdAt  DateTime  @default(now())
   updatedAt  DateTime  @updatedAt
 }
@@ -72,8 +73,8 @@ model Partner {
   name        String
   website     String
   description String
-  image       Image    @relation(fields: [imageId], references: [id])
-  imageId     String
+  image       Image?   @relation(fields: [imageId], references: [id])
+  imageId     String?  @unique
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 }

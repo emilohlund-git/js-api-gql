@@ -4,7 +4,6 @@ import { ID } from '@nestjs/graphql';
 import { Horse } from '../horse/horse.model';
 import { Facility } from '../facility/facility.model';
 import { Partner } from '../partner/partner.model';
-import { ImageCount } from './image-count.output';
 
 @ObjectType()
 export class Image {
@@ -14,6 +13,9 @@ export class Image {
 
     @Field(() => ID, {nullable:false})
     id!: string;
+
+    @Field(() => String, {nullable:false})
+    fileId!: string;
 
     @Field(() => String, {nullable:true})
     horseId!: string | null;
@@ -36,9 +38,6 @@ export class Image {
     @Field(() => Facility, {nullable:true})
     facility?: Facility | null;
 
-    @Field(() => [Partner], {nullable:true})
-    partner?: Array<Partner>;
-
-    @Field(() => ImageCount, {nullable:false})
-    _count?: ImageCount;
+    @Field(() => Partner, {nullable:true})
+    partner?: Partner | null;
 }

@@ -13,6 +13,9 @@ export class ImageGroupBy {
     @Field(() => String, {nullable:false})
     id!: string;
 
+    @Field(() => String, {nullable:false})
+    fileId!: string;
+
     @Field(() => String, {nullable:true})
     horseId?: string;
 

@@ -10,6 +10,9 @@ export class Image {
   id: ImageDB['id'];
 
   @Field()
+  fileId: string;
+
+  @Field()
   profile: boolean;
 
   @Field()
@@ -30,14 +33,3 @@ export class Image {
   @Field(() => GraphQLISODateTime)
   updatedAt: ImageDB['updatedAt']
 }
-
-/**
- *   url        String
-  id         String    @id @map("_id")
-  Horse      Horse?    @relation(fields: [horseId], references: [id])
-  horseId    String?   @db.ObjectId
-  profile    Boolean   @default(false)
-  Facility   Facility? @relation(fields: [facilityId], references: [id])
-  facilityId String?   @db.ObjectId
-  Partner    Partner[]
- */

@@ -19,8 +19,8 @@ export class PartnerGroupBy {
     @Field(() => String, {nullable:false})
     description!: string;
 
-    @Field(() => String, {nullable:false})
-    imageId!: string;
+    @Field(() => String, {nullable:true})
+    imageId?: string;
 
     @Field(() => Date, {nullable:false})
     createdAt!: Date | string;

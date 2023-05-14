@@ -12,6 +12,9 @@ export class ImageCountOrderByAggregateInput {
     id?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
+    fileId?: keyof typeof SortOrder;
+
+    @Field(() => SortOrder, {nullable:true})
     horseId?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})

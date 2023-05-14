@@ -18,8 +18,8 @@ export class Partner {
     @Field(() => String, {nullable:false})
     description!: string;
 
-    @Field(() => String, {nullable:false})
-    imageId!: string;
+    @Field(() => String, {nullable:true})
+    imageId!: string | null;
 
     @Field(() => Date, {nullable:false})
     createdAt!: Date;
@@ -27,6 +27,6 @@ export class Partner {
     @Field(() => Date, {nullable:false})
     updatedAt!: Date;
 
-    @Field(() => Image, {nullable:false})
-    image?: Image;
+    @Field(() => Image, {nullable:true})
+    image?: Image | null;
 }

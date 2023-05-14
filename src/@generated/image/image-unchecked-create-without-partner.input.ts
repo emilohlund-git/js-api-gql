@@ -10,6 +10,9 @@ export class ImageUncheckedCreateWithoutPartnerInput {
     @Field(() => String, {nullable:true})
     id?: string;
 
+    @Field(() => String, {nullable:false})
+    fileId!: string;
+
     @Field(() => String, {nullable:true})
     horseId?: string;
 

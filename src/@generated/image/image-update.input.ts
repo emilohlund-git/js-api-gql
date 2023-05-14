@@ -5,7 +5,7 @@ import { BoolFieldUpdateOperationsInput } from '../prisma/bool-field-update-oper
 import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-update-operations.input';
 import { HorseUpdateOneWithoutImagesNestedInput } from '../horse/horse-update-one-without-images-nested.input';
 import { FacilityUpdateOneWithoutImagesNestedInput } from '../facility/facility-update-one-without-images-nested.input';
-import { PartnerUpdateManyWithoutImageNestedInput } from '../partner/partner-update-many-without-image-nested.input';
+import { PartnerUpdateOneWithoutImageNestedInput } from '../partner/partner-update-one-without-image-nested.input';
 
 @InputType()
 export class ImageUpdateInput {
@@ -15,6 +15,9 @@ export class ImageUpdateInput {
 
     @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
     id?: StringFieldUpdateOperationsInput;
+
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    fileId?: StringFieldUpdateOperationsInput;
 
     @Field(() => BoolFieldUpdateOperationsInput, {nullable:true})
     profile?: BoolFieldUpdateOperationsInput;
@@ -31,6 +34,6 @@ export class ImageUpdateInput {
     @Field(() => FacilityUpdateOneWithoutImagesNestedInput, {nullable:true})
     facility?: FacilityUpdateOneWithoutImagesNestedInput;
 
-    @Field(() => PartnerUpdateManyWithoutImageNestedInput, {nullable:true})
-    partner?: PartnerUpdateManyWithoutImageNestedInput;
+    @Field(() => PartnerUpdateOneWithoutImageNestedInput, {nullable:true})
+    partner?: PartnerUpdateOneWithoutImageNestedInput;
 }

@@ -11,6 +11,9 @@ export class ImageMaxAggregate {
     id?: string;
 
     @Field(() => String, {nullable:true})
+    fileId?: string;
+
+    @Field(() => String, {nullable:true})
     horseId?: string;
 
     @Field(() => Boolean, {nullable:true})

@@ -1,6 +1,7 @@
 import { Field } from '@nestjs/graphql';
 import { InputType } from '@nestjs/graphql';
 import { StringFilter } from '../prisma/string-filter.input';
+import { StringNullableFilter } from '../prisma/string-nullable-filter.input';
 import { DateTimeFilter } from '../prisma/date-time-filter.input';
 import { ImageRelationFilter } from '../image/image-relation-filter.input';
 
@@ -28,8 +29,8 @@ export class PartnerWhereInput {
     @Field(() => StringFilter, {nullable:true})
     description?: StringFilter;
 
-    @Field(() => StringFilter, {nullable:true})
-    imageId?: StringFilter;
+    @Field(() => StringNullableFilter, {nullable:true})
+    imageId?: StringNullableFilter;
 
     @Field(() => DateTimeFilter, {nullable:true})
     createdAt?: DateTimeFilter;

@@ -3,7 +3,7 @@ import { InputType } from '@nestjs/graphql';
 import { SortOrder } from '../prisma/sort-order.enum';
 import { HorseOrderByWithRelationInput } from '../horse/horse-order-by-with-relation.input';
 import { FacilityOrderByWithRelationInput } from '../facility/facility-order-by-with-relation.input';
-import { PartnerOrderByRelationAggregateInput } from '../partner/partner-order-by-relation-aggregate.input';
+import { PartnerOrderByWithRelationInput } from '../partner/partner-order-by-with-relation.input';
 
 @InputType()
 export class ImageOrderByWithRelationInput {
@@ -13,6 +13,9 @@ export class ImageOrderByWithRelationInput {
 
     @Field(() => SortOrder, {nullable:true})
     id?: keyof typeof SortOrder;
+
+    @Field(() => SortOrder, {nullable:true})
+    fileId?: keyof typeof SortOrder;
 
     @Field(() => SortOrder, {nullable:true})
     horseId?: keyof typeof SortOrder;
@@ -35,6 +38,6 @@ export class ImageOrderByWithRelationInput {
     @Field(() => FacilityOrderByWithRelationInput, {nullable:true})
     facility?: FacilityOrderByWithRelationInput;
 
-    @Field(() => PartnerOrderByRelationAggregateInput, {nullable:true})
-    partner?: PartnerOrderByRelationAggregateInput;
+    @Field(() => PartnerOrderByWithRelationInput, {nullable:true})
+    partner?: PartnerOrderByWithRelationInput;
 }
