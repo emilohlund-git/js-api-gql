@@ -17,12 +17,5 @@
       "dest": "/graphql",
       "methods": ["POST"]
     }
-  ],
-  "functions": {
-    "graphql": {
-      "runtime": "vercel-node@16.x",
-      "memory": 512,
-      "maxDuration": 10
-    }
-  }
+  ]
 }
