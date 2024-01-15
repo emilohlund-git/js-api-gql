@@ -12,7 +12,7 @@ import { ImageResolver } from "./resolvers/image.resolver";
     ImageKitModule.register({
       publicKey: process.env.IMAGEKIT_PUBLIC_KEY!,
       privateKey: process.env.IMAGEKIT_PRIVATE_KEY!,
-      urlEndpoint: 'https://ik.imagekit.io/kemdbrmht'
+      urlEndpoint: 'https://ik.imagekit.io/cl1rb894z'
     })],
   providers: [ImageResolver, ImageRepository, ImageService],
   exports: [ImageService]
