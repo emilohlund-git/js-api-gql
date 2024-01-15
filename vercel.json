@@ -26,10 +26,6 @@
             ]
         }
     ],
-    "files": [
-        "**/*",
-        "!vercel-build.sh"
-    ],
     "functions": {
         "graphql": {
             "runtime": "vercel-node@16.x",
