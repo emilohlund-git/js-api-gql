@@ -22,8 +22,7 @@
     "graphql": {
       "runtime": "vercel-node@16.x",
       "memory": 512,
-      "maxDuration": 10,
-      "includeFiles": "graphql.schema.json"
+      "maxDuration": 10
     }
   }
 }
