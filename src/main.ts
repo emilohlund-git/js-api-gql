@@ -9,6 +9,6 @@ async function bootstrap() {
       'https://js-api-gql-production.up.railway.app/graphql', 'http://localhost:3001', 'http://localhost:3002', 'https://jsapi-admin.vercel.app', 'https://jemmastables-website.vercel.app']
   });
 
-  await app.listen(process.env.PORT || 3000);
+  await app.listen(3000);
 }
 bootstrap();
